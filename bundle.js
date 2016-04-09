@@ -19100,8 +19100,8 @@ function _inherits(subClass, superClass) {
 	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
 
-var App = function (_React$component) {
-	_inherits(App, _React$component);
+var App = function (_React$Component) {
+	_inherits(App, _React$Component);
 
 	function App() {
 		_classCallCheck(this, App);
@@ -19117,7 +19117,7 @@ var App = function (_React$component) {
 	}]);
 
 	return App;
-}(_react2.default.component);
+}(_react2.default.Component);
 
 exports.default = App;
 
