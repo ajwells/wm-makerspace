@@ -40,15 +40,15 @@ export default class App extends React.Component {
 			{/* menu */}
 			<div className='ui left fixed vertical menu'>
 				<div className='item'><h2>W&M Makerspace</h2></div>
-				<div onClick={this.changeView.bind(this, MAIN)} className={`item ${isActive(MAIN)}`}>
+				<a onClick={this.changeView.bind(this, MAIN)} className={`item ${isActive(MAIN)}`}>
 					Home
-				</div>
-				<div onClick={this.changeView.bind(this, USER)} className={`item ${isActive(USER)}`}>
+				</a>
+				<a onClick={this.changeView.bind(this, USER)} className={`item ${isActive(USER)}`}>
 					Members
-				</div>
-				<div onClick={this.changeView.bind(this, PROJECT)} className={`item ${isActive(PROJECT)}`}>
+				</a>
+				<a onClick={this.changeView.bind(this, PROJECT)} className={`item ${isActive(PROJECT)}`}>
 					Projects
-				</div>
+				</a>
 				<div className='item'></div>
 			</div>
 

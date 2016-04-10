@@ -29,15 +29,15 @@ export default class ProjectView extends React.Component {
 		
 		return <div>
 			<div className="ui secondary pointing menu">	
-				<div onClick={this.changeView.bind(this, MAIN)} className={`item ${isActive(MAIN)}`}>
+				<a onClick={this.changeView.bind(this, MAIN)} className={`item ${isActive(MAIN)}`}>
 					List	
-				</div>
-				<div onClick={this.changeView.bind(this, NEW)} className={`item ${isActive(NEW)}`}>
+				</a>
+				<a onClick={this.changeView.bind(this, NEW)} className={`item ${isActive(NEW)}`}>
 					New	
-				</div>
-				<div onClick={this.changeView.bind(this, UPDATE)} className={`item ${isActive(UPDATE)}`}>
+				</a>
+				<a onClick={this.changeView.bind(this, UPDATE)} className={`item ${isActive(UPDATE)}`}>
 					Update
-				</div>
+				</a>
 			</div>
 		</div>;
 	}
