@@ -19118,11 +19118,11 @@ function _defineProperty(obj, key, value) {
 	}return obj;
 }
 
-var MAIN = 'Main';
+var MAIN = 'Home';
 var USER = 'Users';
 var PROJECT = 'Projects';
 
-var views = (_views = {}, _defineProperty(_views, MAIN, 'Main'), _defineProperty(_views, USER, 'Users'), _defineProperty(_views, PROJECT, 'Projects'), _views);
+var views = (_views = {}, _defineProperty(_views, MAIN, 'Home'), _defineProperty(_views, USER, 'Users'), _defineProperty(_views, PROJECT, 'Projects'), _views);
 
 var App = function (_React$Component) {
 	_inherits(App, _React$Component);
@@ -19152,7 +19152,7 @@ var App = function (_React$Component) {
 				return v === view ? 'active' : '';
 			};
 
-			return _react2.default.createElement('div', null, _react2.default.createElement('div', null, _react2.default.createElement('div', { className: 'ui left fixed vertical menu' }, _react2.default.createElement('div', { className: 'item' }, _react2.default.createElement('h2', null, 'Makerspace')), _react2.default.createElement('div', { onClick: this.changeView.bind(this, MAIN), className: 'item ' + isActive(MAIN) }, 'Main'), _react2.default.createElement('div', { onClick: this.changeView.bind(this, USER), className: 'item ' + isActive(USER) }, 'Users'), _react2.default.createElement('div', { onClick: this.changeView.bind(this, PROJECT), className: 'item ' + isActive(PROJECT) }, 'Project'), _react2.default.createElement('div', { className: 'item' })), _react2.default.createElement('div', { className: 'pusher', style: { padding: '25px', marginLeft: '210px' } }, _react2.default.createElement('div', { style: { marginBottom: '20px' } }, _react2.default.createElement('h1', { className: 'ui block header center' }, views[view])), view === MAIN && _react2.default.createElement(_test2.default, null), view === USER && _react2.default.createElement(_test4.default, { test: 'Props Test' }))));
+			return _react2.default.createElement('div', null, _react2.default.createElement('div', null, _react2.default.createElement('div', { className: 'ui left fixed vertical menu' }, _react2.default.createElement('div', { className: 'item' }, _react2.default.createElement('h2', null, 'Makerspace')), _react2.default.createElement('div', { onClick: this.changeView.bind(this, MAIN), className: 'item ' + isActive(MAIN) }, 'Home'), _react2.default.createElement('div', { onClick: this.changeView.bind(this, USER), className: 'item ' + isActive(USER) }, 'Users'), _react2.default.createElement('div', { onClick: this.changeView.bind(this, PROJECT), className: 'item ' + isActive(PROJECT) }, 'Project'), _react2.default.createElement('div', { className: 'item' })), _react2.default.createElement('div', { className: 'pusher', style: { padding: '25px', marginLeft: '210px' } }, _react2.default.createElement('div', { style: { marginBottom: '20px' } }, _react2.default.createElement('h1', { className: 'ui block header tb' }, views[view])), view === MAIN && _react2.default.createElement(_test2.default, null), view === USER && _react2.default.createElement(_test4.default, { test: 'Props Test' }))));
 		}
 	}]);
 
