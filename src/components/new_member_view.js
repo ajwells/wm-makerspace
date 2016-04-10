@@ -30,21 +30,15 @@ export default class NewMemberView extends React.Component {
 	render() {
 		var interest_list = this.state[INTEREST].map(function(num, index) {
 			var the_name = "interest " + (num + 1).toString();
-			console.log(the_name);
-			console.log(index);
 			return <div className="field"> <input type="text" key={index} placeholder={the_name}/> </div>
 		})
 		
 		var skill_list = this.state[SKILL].map(function(num, index) {
 			var the_name = "skill " + (num + 1).toString();
-			console.log(the_name);
-			console.log(index);
 			return <div className="field"> <input type="text" key={index} placeholder={the_name}/> </div>
 		})
 		var cert_list = this.state[CERT].map(function(num, index) {
 			var the_name = "certification " + (num + 1).toString();
-			console.log(the_name);
-			console.log(index);
 			return <div className="field"> <input type="text" key={index} placeholder={the_name}/> </div>
 		})
 		
@@ -115,6 +109,10 @@ export default class NewMemberView extends React.Component {
 					{cert_list}
 				</div>
 			</form>
+			<div className="ui hidden divider"></div>
+			<div className="white ui button">
+				Submit
+			</div>
 			</div>
 		</div>;
 	}
