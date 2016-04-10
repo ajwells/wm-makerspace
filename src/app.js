@@ -47,7 +47,7 @@ export default class App extends React.Component {
 					Members
 				</div>
 				<div onClick={this.changeView.bind(this, PROJECT)} className={`item ${isActive(PROJECT)}`}>
-					Project
+					Projects
 				</div>
 				<div className='item'></div>
 			</div>
