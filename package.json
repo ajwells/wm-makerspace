@@ -10,7 +10,7 @@
 	},	
 	"scripts": {
 		"start": "budo ./index.js --serve=bundle.js --live --open -- -t [ babelify --presets [ es2015 react ] ] | garnish",
-		"build": "browserify --transform [ babelify --presets [ es2015 react ] ] index.js -o bundle.js"
+		"build": "browserify --transform [ babelify --presets [ es2015 react ] ] --debug -p [ minifyify --map bundle.map.json --output bundle.map.json ] index.js -o bundle.js"
 	},
 	"repository": {
 		"type": "git",
