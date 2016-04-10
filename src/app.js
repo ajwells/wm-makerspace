@@ -3,12 +3,12 @@ import Test1 from './components/test1';
 import Test2 from './components/test2';
 
 
-const MAIN = 'Main';
+const MAIN = 'Home';
 const USER = 'Users';
 const PROJECT = 'Projects';
 
 const views = {
-	[MAIN]: 'Main',
+	[MAIN]: 'Home',
 	[USER]: 'Users',
 	[PROJECT]: 'Projects'
 };
@@ -39,7 +39,7 @@ export default class App extends React.Component {
 			<div className='ui left fixed vertical menu'>
 				<div className='item'><h2>Makerspace</h2></div>
 				<div onClick={this.changeView.bind(this, MAIN)} className={`item ${isActive(MAIN)}`}>
-					Main
+					Home
 				</div>
 				<div onClick={this.changeView.bind(this, USER)} className={`item ${isActive(USER)}`}>
 					Users
@@ -54,7 +54,7 @@ export default class App extends React.Component {
 			<div className='pusher' style={{padding: '25px', marginLeft: '210px'}}>
 				
 				<div style={{marginBottom: '20px'}}>
-					<h1 className='ui block header center'>{views[view]}</h1>
+					<h1 className='ui block header tb'>{views[view]}</h1>
 				</div>
 
 				{view === MAIN && <Test1 />}
