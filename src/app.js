@@ -1,15 +1,17 @@
 import React from 'react';
+import MemberView from './components/member_view';
+import ProjectView from './components/project_view';
 import Test1 from './components/test1';
 import Test2 from './components/test2';
 
 
 const MAIN = 'Home';
-const USER = 'Users';
+const USER = 'Members';
 const PROJECT = 'Projects';
 
 const views = {
 	[MAIN]: 'Home',
-	[USER]: 'Users',
+	[USER]: 'Members',
 	[PROJECT]: 'Projects'
 };
 
@@ -29,20 +31,20 @@ export default class App extends React.Component {
 	}
 
 	render() {
-		var view = this.state.view;
 
+		var view = this.state.view;
 		var isActive = v => v === view ? 'active' : '';
 
 		return <div>
 			<div>
 			{/* menu */}
 			<div className='ui left fixed vertical menu'>
-				<div className='item'><h2>Makerspace</h2></div>
+				<div className='item'><h2>W&M Makerspace</h2></div>
 				<div onClick={this.changeView.bind(this, MAIN)} className={`item ${isActive(MAIN)}`}>
 					Home
 				</div>
 				<div onClick={this.changeView.bind(this, USER)} className={`item ${isActive(USER)}`}>
-					Users
+					Members
 				</div>
 				<div onClick={this.changeView.bind(this, PROJECT)} className={`item ${isActive(PROJECT)}`}>
 					Project
@@ -59,8 +61,9 @@ export default class App extends React.Component {
 
 				{view === MAIN && <Test1 />}
 
-				{view === USER && <Test2 test="Props Test" />}
+				{view === USER && <MemberView  />}
 
+				{view === PROJECT && <ProjectView  />}
 			</div>
 			</div>
 		</div>;
