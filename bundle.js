@@ -19074,6 +19074,112 @@ var _createClass = function () {
 	};
 }();
 
+var _views;
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _test = require('./components/test1');
+
+var _test2 = _interopRequireDefault(_test);
+
+var _test3 = require('./components/test2');
+
+var _test4 = _interopRequireDefault(_test3);
+
+function _interopRequireDefault(obj) {
+	return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+	if (!(instance instanceof Constructor)) {
+		throw new TypeError("Cannot call a class as a function");
+	}
+}
+
+function _possibleConstructorReturn(self, call) {
+	if (!self) {
+		throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+	}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+}
+
+function _inherits(subClass, superClass) {
+	if (typeof superClass !== "function" && superClass !== null) {
+		throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+function _defineProperty(obj, key, value) {
+	if (key in obj) {
+		Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+	} else {
+		obj[key] = value;
+	}return obj;
+}
+
+var MAIN = 'Main';
+var USER = 'Users';
+var PROJECT = 'Projects';
+
+var views = (_views = {}, _defineProperty(_views, MAIN, 'Main'), _defineProperty(_views, USER, 'Users'), _defineProperty(_views, PROJECT, 'Projects'), _views);
+
+var App = function (_React$Component) {
+	_inherits(App, _React$Component);
+
+	function App(props) {
+		_classCallCheck(this, App);
+
+		var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
+
+		_this.state = {
+			view: views[MAIN]
+		};
+		return _this;
+	}
+
+	_createClass(App, [{
+		key: 'changeView',
+		value: function changeView(view) {
+			this.setState({ view: view });
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var view = this.state.view;
+
+			var isActive = function isActive(v) {
+				return v === view ? 'active' : '';
+			};
+
+			return _react2.default.createElement('div', null, _react2.default.createElement('div', null, _react2.default.createElement('div', { className: 'ui left fixed vertical menu' }, _react2.default.createElement('div', { className: 'item' }, _react2.default.createElement('h2', null, 'Makerspace')), _react2.default.createElement('div', { onClick: this.changeView.bind(this, MAIN), className: 'item ' + isActive(MAIN) }, 'Main'), _react2.default.createElement('div', { onClick: this.changeView.bind(this, USER), className: 'item ' + isActive(USER) }, 'Users'), _react2.default.createElement('div', { onClick: this.changeView.bind(this, PROJECT), className: 'item ' + isActive(PROJECT) }, 'Project'), _react2.default.createElement('div', { className: 'item' })), _react2.default.createElement('div', { className: 'pusher', style: { padding: '25px', marginLeft: '210px' } }, _react2.default.createElement('div', { style: { marginBottom: '20px' } }, _react2.default.createElement('h1', { className: 'ui block header center' }, views[view])), view === MAIN && _react2.default.createElement(_test2.default, null), view === USER && _react2.default.createElement(_test4.default, { test: 'Props Test' }))));
+		}
+	}]);
+
+	return App;
+}(_react2.default.Component);
+
+exports.default = App;
+
+},{"./components/test1":161,"./components/test2":162,"react":159}],161:[function(require,module,exports){
+'use strict';
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () {
+	function defineProperties(target, props) {
+		for (var i = 0; i < props.length; i++) {
+			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+		}
+	}return function (Constructor, protoProps, staticProps) {
+		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	};
+}();
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -19100,25 +19206,91 @@ function _inherits(subClass, superClass) {
 	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
 
-var App = function (_React$Component) {
-	_inherits(App, _React$Component);
+var Test1 = function (_React$Component) {
+	_inherits(Test1, _React$Component);
 
-	function App() {
-		_classCallCheck(this, App);
+	function Test1() {
+		_classCallCheck(this, Test1);
 
-		return _possibleConstructorReturn(this, Object.getPrototypeOf(App).apply(this, arguments));
+		return _possibleConstructorReturn(this, Object.getPrototypeOf(Test1).apply(this, arguments));
 	}
 
-	_createClass(App, [{
+	_createClass(Test1, [{
 		key: 'render',
 		value: function render() {
-			return _react2.default.createElement('div', null, 'Test');
+			return _react2.default.createElement('div', null, 'Test1');
 		}
 	}]);
 
-	return App;
+	return Test1;
 }(_react2.default.Component);
 
-exports.default = App;
+exports.default = Test1;
+
+},{"react":159}],162:[function(require,module,exports){
+'use strict';
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () {
+	function defineProperties(target, props) {
+		for (var i = 0; i < props.length; i++) {
+			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+		}
+	}return function (Constructor, protoProps, staticProps) {
+		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	};
+}();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) {
+	return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+	if (!(instance instanceof Constructor)) {
+		throw new TypeError("Cannot call a class as a function");
+	}
+}
+
+function _possibleConstructorReturn(self, call) {
+	if (!self) {
+		throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+	}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+}
+
+function _inherits(subClass, superClass) {
+	if (typeof superClass !== "function" && superClass !== null) {
+		throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var Test2 = function (_React$Component) {
+	_inherits(Test2, _React$Component);
+
+	function Test2() {
+		_classCallCheck(this, Test2);
+
+		return _possibleConstructorReturn(this, Object.getPrototypeOf(Test2).apply(this, arguments));
+	}
+
+	_createClass(Test2, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement('div', null, this.props.test);
+		}
+	}]);
+
+	return Test2;
+}(_react2.default.Component);
+
+exports.default = Test2;
 
 },{"react":159}]},{},[1]);
