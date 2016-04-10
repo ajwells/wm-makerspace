@@ -62,7 +62,7 @@ export default class NewMemberView extends React.Component {
 						Interests
 					</div>
 					<div onClick={this.addToCount.bind(this, INTEREST)} className="ui button">
-						New
+						Add
 					</div>
 				</div>
 				<div onClick={this.removeFromCount.bind(this, INTEREST)} className="negative ui right floated button">
@@ -80,7 +80,7 @@ export default class NewMemberView extends React.Component {
 						Skills
 					</div>
 					<div onClick={this.addToCount.bind(this, SKILL)} className="ui button">
-						New
+						Add
 					</div>
 				</div>
 				<div onClick={this.removeFromCount.bind(this, SKILL)} className="negative ui right floated button">
@@ -98,7 +98,7 @@ export default class NewMemberView extends React.Component {
 						Certifications
 					</div>
 					<div onClick={this.addToCount.bind(this, CERT)} className="ui button">
-						New	
+						Add
 					</div>
 				</div>
 				<div onClick={this.removeFromCount.bind(this, CERT)} className="negative ui right floated button">
