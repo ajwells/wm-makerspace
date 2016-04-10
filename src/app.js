@@ -53,10 +53,11 @@ export default class App extends React.Component {
 			</div>
 
 			{/* page */}
+			<div style={{backgroundColor: '#003200'}}>
 			<div className='pusher' style={{padding: '25px', marginLeft: '210px'}}>
 				
 				<div style={{marginBottom: '20px'}}>
-					<h1 className='ui block header tb'>{views[view]}</h1>
+					<h1 className='ui block header tb' style={{color: 'white', backgroundColor: '#E3BB14'}}>{views[view]}</h1>
 				</div>
 
 				{view === MAIN && <Test1 />}
@@ -64,6 +65,7 @@ export default class App extends React.Component {
 				{view === USER && <MemberView  />}
 
 				{view === PROJECT && <ProjectView  />}
+			</div>
 			</div>
 			</div>
 		</div>;

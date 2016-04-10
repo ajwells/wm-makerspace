@@ -28,14 +28,14 @@ export default class ProjectView extends React.Component {
 		var isActive = v => v === view ? 'active' : '';
 		
 		return <div>
-			<div className="ui secondary pointing menu">	
-				<a onClick={this.changeView.bind(this, MAIN)} className={`item ${isActive(MAIN)}`}>
+			<div className="ui yellow secondary pointing menu">	
+				<a style={{color: 'white'}} onClick={this.changeView.bind(this, MAIN)} className={`item ${isActive(MAIN)}`}>
 					List	
 				</a>
-				<a onClick={this.changeView.bind(this, NEW)} className={`item ${isActive(NEW)}`}>
+				<a style={{color: 'white'}} onClick={this.changeView.bind(this, NEW)} className={`item ${isActive(NEW)}`}>
 					New	
 				</a>
-				<a onClick={this.changeView.bind(this, UPDATE)} className={`item ${isActive(UPDATE)}`}>
+				<a style={{color: 'white'}} onClick={this.changeView.bind(this, UPDATE)} className={`item ${isActive(UPDATE)}`}>
 					Update
 				</a>
 			</div>
