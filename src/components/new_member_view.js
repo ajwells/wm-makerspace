@@ -16,10 +16,14 @@ export default class NewMemberView extends React.Component {
 	}
 
 	addToCount(count) {
-		var test = 'interest_count';
-		console.log(this.state[test]);
 		this.setState({
 			[count]: this.state[count].concat([this.state[count].length])
+		});
+	}
+	
+	removeFromCount(count) {
+		this.setState({
+			[count]: this.state[count].splice(0, (this.state[count].length - 1))
 		});
 	}
 
@@ -57,6 +61,8 @@ export default class NewMemberView extends React.Component {
 					<input type="text" name="name" placeholder="Name"/>
 				</div>
 				</div>
+
+				{/* interests */}
 				<div className="ui left labeled button" tabIndex="0">
 					<div className="ui basic label">
 						Interests
@@ -65,11 +71,16 @@ export default class NewMemberView extends React.Component {
 						New
 					</div>
 				</div>
+				<div onClick={this.removeFromCount.bind(this, INTEREST)} className="negative ui right floated button">
+					Remove
+				</div>
 				<div className="ui hidden divider"></div>
 				<div>
 					{interest_list}
 				</div>
 				<div className="ui divider"> </div>
+
+				{/* skills */}
 				<div className="ui left labeled button" tabIndex="0">
 					<div className="ui basic label">
 						Skills
@@ -78,11 +89,16 @@ export default class NewMemberView extends React.Component {
 						New
 					</div>
 				</div>
+				<div onClick={this.removeFromCount.bind(this, SKILL)} className="negative ui right floated button">
+					Remove
+				</div>
 				<div className="ui hidden divider"></div>
 				<div>
 					{skill_list}
 				</div>
 				<div className="ui divider"> </div>
+
+				{/* certifications */}
 				<div className="ui left labeled button" tabIndex="0">
 					<div className="ui basic label">
 						Certifications
@@ -90,6 +106,9 @@ export default class NewMemberView extends React.Component {
 					<div onClick={this.addToCount.bind(this, CERT)} className="ui button">
 						New	
 					</div>
+				</div>
+				<div onClick={this.removeFromCount.bind(this, CERT)} className="negative ui right floated button">
+					Remove
 				</div>
 				<div className="ui hidden divider"></div>
 				<div>
