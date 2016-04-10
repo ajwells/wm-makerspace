@@ -9,7 +9,7 @@ export default class NewMemberView extends React.Component {
 	render() {
 		
 		return <div>
-			<div className="ui green inverted segment">
+			<div className="ui yellow inverted segment">
 			<form className="ui inverted form">
 				<div className="field">
 					<label>ID</label>
