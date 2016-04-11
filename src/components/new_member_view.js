@@ -11,7 +11,7 @@ class InputItem extends React.Component {
 	render() {
 		var the_name = this.props.list_type + (this.props.index + 1).toString();
 		return <div className="field">
-			<input type="text" key={the_name} placeholder={the_name} onChange={this.props.onChange} />
+			<input type="text" placeholder={the_name} onChange={this.props.onChange} />
 		</div>;
 	}
 }
@@ -70,17 +70,17 @@ export default class NewMemberView extends React.Component {
 		
 		var interest_list = [];
 		this.state[INTEREST].forEach(function(value, index) {
-			interest_list.push(<InputItem index={index} onChange={this.update.bind(this, INTEREST, index)} list_type={INTEREST} />)
+			interest_list.push(<InputItem index={index} key={index} onChange={this.update.bind(this, INTEREST, index)} list_type={INTEREST} />)
 		}.bind(this));
 		
 		var skill_list = [];
 		this.state[SKILL].map(function(num, index) {
-			skill_list.push(<InputItem index={index} onChange={this.update.bind(this, SKILL, index)} list_type={SKILL} />)
+			skill_list.push(<InputItem index={index} key={index} onChange={this.update.bind(this, SKILL, index)} list_type={SKILL} />)
 		}.bind(this));
 		
 		var cert_list = [];	
 		this.state[CERT].map(function(num, index) {
-			cert_list.push(<InputItem index={index} onChange={this.update.bind(this, CERT, index)} list_type={CERT} />)
+			cert_list.push(<InputItem index={index} key={index} onChange={this.update.bind(this, CERT, index)} list_type={CERT} />)
 		}.bind(this));
 		
 		return <div>
