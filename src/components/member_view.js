@@ -1,5 +1,6 @@
 import React from 'react';
 import NewMemberView from './new_member_view';
+import ListMemberView from './list_member_view';
 
 const MAIN = 'List';
 const NEW = 'New';
@@ -41,8 +42,9 @@ export default class MemberView extends React.Component {
 				</a>
 			</div>
 
-			{view === NEW && <NewMemberView />} 
+			{view === MAIN && <ListMemberView />} 
 
+			{view === NEW && <NewMemberView />} 
 		</div>;
 	}
 }
