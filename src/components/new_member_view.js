@@ -1,14 +1,18 @@
 import React from 'react';
 
-const INTEREST = 'interest_count';
-const SKILL = 'skill_count';
-const CERT = 'cert_count';
+const INTEREST = 'interest';
+const SKILL = 'skill';
+const CERT = 'cert';
+const NAME = 'name';
+const ID = 'id';
 
 export default class NewMemberView extends React.Component {
 	
 	constructor(props) {
 		super(props);
 		this.state = {
+			[NAME]: '',
+			[ID]: '',
 			[INTEREST]: [],
 			[SKILL]: [],
 			[CERT]: []
@@ -17,7 +21,7 @@ export default class NewMemberView extends React.Component {
 
 	addToCount(count) {
 		this.setState({
-			[count]: this.state[count].concat([this.state[count].length])
+			[count]: this.state[count].concat('')
 		});
 	}
 	
@@ -27,19 +31,44 @@ export default class NewMemberView extends React.Component {
 		});
 	}
 
+	update(item, index, e) {
+
+		switch (item) {
+			case 'id':
+				this.setState({ [ID]: e.target.value });
+				break;
+			case 'name':
+				this.setState({ [NAME]: e.target.value });
+				break;
+			default:
+				var new_state = this.state[item][index] = e.target.value;
+				this.setState({ [INTEREST]: new_state });
+		}
+	}
+
+	submit() {
+		console.log(this.state[ID]);
+		console.log(this.state[NAME]);
+		console.log(this.state[INTEREST]);
+		console.log(this.state[SKILL]);
+		console.log(this.state[CERT]);
+	}
+
+
+
 	render() {
 		var interest_list = this.state[INTEREST].map(function(num, index) {
-			var the_name = "interest " + (num + 1).toString();
-			return <div className="field"> <input type="text" key={index} placeholder={the_name}/> </div>
+			var the_name = "interest " + (index + 1).toString();
+			return <div className="field"> <input type="text" key={the_name} placeholder={the_name} /> </div>
 		})
 		
 		var skill_list = this.state[SKILL].map(function(num, index) {
-			var the_name = "skill " + (num + 1).toString();
-			return <div className="field"> <input type="text" key={index} placeholder={the_name}/> </div>
+			var the_name = "skill " + (index + 1).toString();
+			return <div className="field"> <input type="text" key={the_name} placeholder={the_name}/> </div>
 		})
 		var cert_list = this.state[CERT].map(function(num, index) {
-			var the_name = "certification " + (num + 1).toString();
-			return <div className="field"> <input type="text" key={index} placeholder={the_name}/> </div>
+			var the_name = "certification " + (index + 1).toString();
+			return <div className="field"> <input type="text" key={the_name} placeholder={the_name}/> </div>
 		})
 		
 		return <div>
@@ -48,11 +77,11 @@ export default class NewMemberView extends React.Component {
 				<div className="two fields">
 				<div className="required field">
 					<label>ID</label>
-					<input type="text" name="id" placeholder="ID"/>
+					<input type="text" name="id" placeholder="ID" onChange={this.update.bind(this, ID, 0)} />
 				</div>
 				<div className="required field">
 					<label>Name</label>
-					<input type="text" name="name" placeholder="Name"/>
+					<input type="text" name="name" placeholder="Name" onChange={this.update.bind(this, NAME, 0)} />
 				</div>
 				</div>
 
@@ -110,7 +139,7 @@ export default class NewMemberView extends React.Component {
 				</div>
 			</form>
 			<div className="ui hidden divider"></div>
-			<div className="white ui button">
+			<div onClick={this.submit.bind(this)} className="white ui button">
 				Submit
 			</div>
 			</div>

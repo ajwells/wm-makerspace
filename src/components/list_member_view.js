@@ -1,5 +1,19 @@
 import React from 'react';
 
+class ListItem extends React.Component {
+	render() {
+		var name = this.props.name;
+		var visit = this.props.visit;
+
+		return <tr>
+			<td>{name}</td>
+			<td>{visit}</td>
+		</tr>
+
+
+	}
+}
+
 export default class ListMemberView extends React.Component {
 	
 	constructor(props) {
@@ -7,6 +21,13 @@ export default class ListMemberView extends React.Component {
 	}
 
 	render() {
+
+		var data = [{name: 'name 1', visit: '1'}, {name: 'name 2', visit: '4'}]
+		var rows = [];
+
+		data.forEach(function(data) {
+			rows.push(<ListItem name={data.name} visit={data.visit} key={data.name} />)
+		});
 		
 		return <div>
 			<table className="ui striped inverted yellow table">
@@ -15,14 +36,7 @@ export default class ListMemberView extends React.Component {
 					<th>Visits</th>
 				</tr></thead>
 				<tbody>
-				<tr>
-					<td>Name1</td>
-					<td>1</td>
-				</tr>
-				<tr>
-					<td>Name2</td>
-					<td>4</td>
-				</tr>
+					{rows}
 				</tbody>
 			</table>
 		</div>;
