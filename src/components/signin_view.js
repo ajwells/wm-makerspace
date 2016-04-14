@@ -29,7 +29,7 @@ export default class SignInView extends React.Component {
 							<div className="nine wide column">
 								<form className="ui inverted form">	
 									<label>ID</label>
-									<select className="ui dropdown" placeholder="id">
+									<select className="ui search dropdown" placeholder="id">
 										<option value=""></option>
 										{rows}
 									</select>
