@@ -1,6 +1,6 @@
 import React from 'react';
 
-class ListItem extends React.Component {
+class MemberListItem extends React.Component {
 	render() {
 		var name = this.props.name;
 		var visit = this.props.visit;
@@ -26,7 +26,7 @@ export default class ListMemberView extends React.Component {
 		var rows = [];
 
 		data.forEach(function(data) {
-			rows.push(<ListItem name={data.name} visit={data.visit} key={data.name} />)
+			rows.push(<MemberListItem name={data.name} visit={data.visit} key={data.name} />)
 		});
 		
 		return <div>
