@@ -1,9 +1,7 @@
 import React from 'react';
 import MemberView from './components/member_view';
 import ProjectView from './components/project_view';
-import Test1 from './components/test1';
-import Test2 from './components/test2';
-
+import HomeView from './components/home_view';
 
 const MAIN = 'Home';
 const USER = 'Members';
@@ -60,7 +58,7 @@ export default class App extends React.Component {
 					<h1 className='ui block header' style={{color: 'white', backgroundColor: '#FFB70A'}}>{views[view]}</h1>
 				</div>
 
-				{view === MAIN && <Test1 />}
+				{view === MAIN && <HomeView />}
 
 				{view === USER && <MemberView  />}
 
