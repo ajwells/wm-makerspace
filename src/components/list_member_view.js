@@ -19,7 +19,10 @@ class MemberCard extends React.Component {
 				<img src="/src/images/matthew.png" />
 			</div>
 			<div className="content">
-				{name}
+				<div className="header">{name}</div>
+				<div className="meta">
+					<span className="date">Last Visit:</span>
+				</div>
 			</div>
 		</div>
 
@@ -54,12 +57,12 @@ export default class ListMemberView extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			list: false
+			id: false
 		}
 	}
 
 	handleClick(item) {
-		this.setState({list: item});
+		this.setState({id: item});
 	}
 
 	getSelected(id, data) {
@@ -76,7 +79,7 @@ export default class ListMemberView extends React.Component {
 
 		var data = [{id: '39120321', name: 'name 1', visit: '1'}, {id: '8008231', name: 'name 2', visit: '4'}];
 		var rows = [];
-		var selected = this.getSelected(this.state.list, data);
+		var selected = this.getSelected(this.state.id, data);
 
 		data.forEach(function(data) {
 			rows.push(<MemberListItem onClick={this.handleClick.bind(this)} id={data.id} name={data.name} visit={data.visit} key={data.name} />)
@@ -84,7 +87,7 @@ export default class ListMemberView extends React.Component {
 
 		var list;
 		var card;
-		if (!this.state.list) {
+		if (!this.state.id) {
 			var list = <table className="ui striped inverted yellow table">
 				<thead><tr>
 					<th>Member Name</th>
