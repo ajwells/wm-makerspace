@@ -12,7 +12,6 @@ class SignInItem extends React.Component {
 
 export default class SignInView extends React.Component {
 
-
 	render() {
 
 		var data = [{id: 'id 1'}, {id: 'id 2'}];
@@ -33,7 +32,7 @@ export default class SignInView extends React.Component {
 									<div className="field">
 									<label>Member ID</label>
 									<select className="ui search dropdown">
-										<option value="">defaulttext</option>
+										<option value=""></option>
 										<option value="test">Test</option>
 									</select>
 									</div>
@@ -44,7 +43,7 @@ export default class SignInView extends React.Component {
 									<div className="field">
 									<label>Room</label>
 									<select className="ui search dropdown">
-										<option value="">defaulttext</option>
+										<option value=""></option>
 										<option value="test">Test</option>
 									</select>
 									</div>
