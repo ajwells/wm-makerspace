@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from 'jquery';
 
 export default class SimpleDropDown extends React.component {
 
@@ -23,7 +24,32 @@ export default class SimpleDropDown extends React.component {
 							value: item.id
 						});
 					});
+					return response;
+				},
+				url: '//api.github.com/search/repositories?q={query}'
+			},
+			onChange: (value) => {
+				this.setState({ value });
+			}
+		});
 	}
 
+	componentDidUpdate() {
+		$('.ui.dropdown').dropdown('refresh');
+	}
+
+	/*render() {
+		return <div>
+			<div>
+				<h2>Dropdown</h2>
+				<div className="ui search selection dropdown">
+					<input type="hidden" name="member-ids" />
+					<div className="defualt text">Choose ID</div>
+					<i className="dropdown icon"></i>
+					<div className="menu"></div>
+				</div>
+			</div>
+		</div>
+	}*/
 }
 

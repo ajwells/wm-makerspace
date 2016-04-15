@@ -1,23 +1,38 @@
 import React from 'react';
 
 class MemberListItem extends React.Component {
+
+	clicked() {
+		this.props.onClick("new");
+	}
+
 	render() {
 		var name = this.props.name;
 		var visit = this.props.visit;
 
-		return <tr>
+		return <tr onClick={this.clicked.bind(this)}>
 			<td>{name}</td>
 			<td>{visit}</td>
-		</tr>
+		</tr>;
 
 
 	}
 }
 
 export default class ListMemberView extends React.Component {
-	
+
 	constructor(props) {
 		super(props);
+		this.state = {
+			test: "test"
+		}
+	}
+
+	handleClick(item) {
+		console.log(this.state.test);
+		this.setState({test: item});
+		console.log(item);
+		console.log(this.state.test);
 	}
 
 	render() {
@@ -26,8 +41,8 @@ export default class ListMemberView extends React.Component {
 		var rows = [];
 
 		data.forEach(function(data) {
-			rows.push(<MemberListItem name={data.name} visit={data.visit} key={data.name} />)
-		});
+			rows.push(<MemberListItem onClick={this.handleClick.bind(this)} name={data.name} visit={data.visit} key={data.name} />)
+		}.bind(this));
 		
 		return <div>
 			<table className="ui striped inverted yellow table">
