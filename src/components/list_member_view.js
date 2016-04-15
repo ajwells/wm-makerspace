@@ -1,9 +1,39 @@
 import React from 'react';
 
-class MemberListItem extends React.Component {
+
+class MemberCard extends React.Component {
+
+	constructor(props) {
+		super(props);
+	}
 
 	clicked() {
-		this.props.onClick("new");
+		this.props.onClick(false);
+	}
+
+	render() {
+		var name = this.props.name;
+
+		return <div className="ui card" onClick={this.clicked.bind(this)}>
+			<div className="image">
+				<img src="/src/images/matthew.png" />
+			</div>
+			<div className="content">
+				{name}
+			</div>
+		</div>
+
+	}
+}
+
+class MemberListItem extends React.Component {
+
+	constructor(props) {
+		super(props);
+	}
+
+	clicked() {
+		this.props.onClick(this.props.id);
 	}
 
 	render() {
@@ -24,28 +54,38 @@ export default class ListMemberView extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			test: "test"
+			list: false
 		}
 	}
 
 	handleClick(item) {
-		console.log(this.state.test);
-		this.setState({test: item});
-		console.log(item);
-		console.log(this.state.test);
+		this.setState({list: item});
+	}
+
+	getSelected(id, data) {
+		var selected;
+		data.forEach(function(data) {
+			if (data.id === id) {
+				selected = data;
+			}
+		});
+		return selected;
 	}
 
 	render() {
 
-		var data = [{name: 'name 1', visit: '1'}, {name: 'name 2', visit: '4'}]
+		var data = [{id: '39120321', name: 'name 1', visit: '1'}, {id: '8008231', name: 'name 2', visit: '4'}];
 		var rows = [];
+		var selected = this.getSelected(this.state.list, data);
 
 		data.forEach(function(data) {
-			rows.push(<MemberListItem onClick={this.handleClick.bind(this)} name={data.name} visit={data.visit} key={data.name} />)
+			rows.push(<MemberListItem onClick={this.handleClick.bind(this)} id={data.id} name={data.name} visit={data.visit} key={data.name} />)
 		}.bind(this));
-		
-		return <div>
-			<table className="ui striped inverted yellow table">
+
+		var list;
+		var card;
+		if (!this.state.list) {
+			var list = <table className="ui striped inverted yellow table">
 				<thead><tr>
 					<th>Member Name</th>
 					<th>Visits</th>
@@ -54,6 +94,28 @@ export default class ListMemberView extends React.Component {
 					{rows}
 				</tbody>
 			</table>
+		} else {
+			var card = <MemberCard onClick={this.handleClick.bind(this)} id={selected.id} name={selected.name} />
+			var list = <div className="ui grid">
+				<div className="twelve wide column">
+				<table className="ui striped inverted yellow table">
+					<thead><tr>
+						<th>Member Name</th>
+						<th>Visits</th>
+					</tr></thead>
+					<tbody>
+						{rows}
+					</tbody>
+				</table>
+				</div>
+				<div className="column four wide column">
+					{card}
+				</div>
+			</div>;
+		}
+		
+		return <div>
+			{list}
 		</div>;
 	}
 }
