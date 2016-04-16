@@ -73,7 +73,7 @@ export default class ListMemberView extends React.Component {
 		} else {
 			card = <MemberCard onClick={this.handleClick.bind(this)} id={selected.id} name={selected.name} />
 			list = <div className="ui grid">
-				<div className="twelve wide column">
+				<div className="eleven wide column">
 				<table className="ui striped inverted yellow table">
 					<thead><tr>
 						<th>Member Name</th>
@@ -84,7 +84,9 @@ export default class ListMemberView extends React.Component {
 					</tbody>
 				</table>
 				</div>
-				<div className="column four wide column">
+				<div className="one wide column">
+				</div>
+				<div className="four wide column">
 					{card}
 				</div>
 			</div>;

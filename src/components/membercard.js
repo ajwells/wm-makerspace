@@ -12,6 +12,7 @@ export default class MemberCard extends React.Component {
 
 	render() {
 		var name = this.props.name;
+		var url = "http://localhost:12000/images/test";
 
 		return <div>	
 		<div className="ui card">
@@ -19,7 +20,7 @@ export default class MemberCard extends React.Component {
 				<button className="ui compact right floated negative icon button" style={{position: 'absolute', right: '5px', top: '5px'}} onClick={this.clicked.bind(this)}>
 					<i className="remove icon"></i>
 				</button>
-				<img src="/src/images/matthew.png" />
+				<img src={url} />
 			</div>
 			<div className="content">
 				<div className="header">{name}</div>

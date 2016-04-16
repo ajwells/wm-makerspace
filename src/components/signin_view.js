@@ -100,9 +100,9 @@ export default class SignInView extends React.Component {
 				<div className="nine wide column">
 					{signin}
 				</div>
-				<div className="one wide column">
+				<div className="two wide column">
 				</div>
-				<div className="six wide column">
+				<div className="four wide column">
 					{card}
 				</div>
 			</div>
