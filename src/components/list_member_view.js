@@ -1,33 +1,6 @@
 import React from 'react';
+import MemberCard from './membercard';
 
-
-class MemberCard extends React.Component {
-
-	constructor(props) {
-		super(props);
-	}
-
-	clicked() {
-		this.props.onClick(false);
-	}
-
-	render() {
-		var name = this.props.name;
-
-		return <div className="ui card" onClick={this.clicked.bind(this)}>
-			<div className="image">
-				<img src="/src/images/matthew.png" />
-			</div>
-			<div className="content">
-				<div className="header">{name}</div>
-				<div className="meta">
-					<span className="date">Last Visit:</span>
-				</div>
-			</div>
-		</div>
-
-	}
-}
 
 class MemberListItem extends React.Component {
 
@@ -88,7 +61,7 @@ export default class ListMemberView extends React.Component {
 		var list;
 		var card;
 		if (!this.state.id) {
-			var list = <table className="ui striped inverted yellow table">
+			list = <table className="ui striped inverted yellow table">
 				<thead><tr>
 					<th>Member Name</th>
 					<th>Visits</th>
@@ -98,8 +71,8 @@ export default class ListMemberView extends React.Component {
 				</tbody>
 			</table>
 		} else {
-			var card = <MemberCard onClick={this.handleClick.bind(this)} id={selected.id} name={selected.name} />
-			var list = <div className="ui grid">
+			card = <MemberCard onClick={this.handleClick.bind(this)} id={selected.id} name={selected.name} />
+			list = <div className="ui grid">
 				<div className="twelve wide column">
 				<table className="ui striped inverted yellow table">
 					<thead><tr>

@@ -2,14 +2,14 @@ import React from 'react';
 
 const INTEREST = 'interest';
 const SKILL = 'skill';
-const CERT = 'cert';
+const CERT = 'certification';
 const NAME = 'name';
 const ID = 'id';
 
 class InputItem extends React.Component {
 
 	render() {
-		var the_name = this.props.list_type + (this.props.index + 1).toString();
+		var the_name = this.props.list_type + " " + (this.props.index + 1).toString();
 		return <div className="field">
 			<input type="text" placeholder={the_name} onChange={this.props.onChange} />
 		</div>;
