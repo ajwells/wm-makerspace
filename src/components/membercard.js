@@ -12,7 +12,7 @@ export default class MemberCard extends React.Component {
 
 	render() {
 		var name = this.props.name;
-		var url = "http://localhost:12000/images/test";
+		var url = "http://ec2-52-91-5-18.compute-1.amazonaws.com:12000/images/test";
 
 		return <div>	
 		<div className="ui card">
