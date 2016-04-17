@@ -62,7 +62,7 @@ export default class ListMemberView extends React.Component {
 
 	render() {
 
-		var data = [{id: '39120321', name: 'name 1', visit: '1'}, {id: '8008231', name: 'name 2', visit: '4'}];
+		var data = this.state.data;
 		var rows = [];
 		var selected = this.getSelected(this.state.id, data);
 
@@ -85,7 +85,7 @@ export default class ListMemberView extends React.Component {
 		if (!this.state.id) {
 			view = list;
 		} else {
-			var card = <MemberCard onClick={this.handleClick.bind(this)} id={selected.id} name={selected.name} />
+			var card = <MemberCard onClick={this.handleClick.bind(this)} id={selected.id} name={selected.name} last_visit={selected.last_visit}/>
 			view = <div className="ui grid">
 				<div className="ten wide column">
 					{list}

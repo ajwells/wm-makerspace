@@ -7,9 +7,6 @@ export default class MemberCard extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {
-			data: {}
-		};
 	}
 
 	clicked() {
@@ -17,10 +14,15 @@ export default class MemberCard extends React.Component {
 	}
 
 	render() {
+		
+		var certs = API.getMemberInfo('certs', this.props.id);
+		var skills = API.getMemberInfo('skills', this.props.id);
+		var interests = API.getMemberInfo('interests', this.props.id);
+		var projects = API.getMemberInfo('projects', this.props.id);
 		var name = this.props.name;
 		var url = API.getImage2("test");
 
-		return <div>	
+		return <div style={{position: 'fixed', top: '153px'}}>	
 		<div className="ui card">
 			<div className="image" style={{position: 'relative'}}>
 				<button className="ui compact right floated negative icon button" style={{position: 'absolute', right: '5px', top: '5px'}} onClick={this.clicked.bind(this)}>
@@ -31,31 +33,39 @@ export default class MemberCard extends React.Component {
 			<div className="content">
 				<div className="header">{name}</div>
 				<div className="meta">
-					<span className="date">Last Visit:</span>
+					<span className="date">Last Visit: {this.props.last_visit}</span>
 				</div>
 				<div className="ui divided list">
 					<div className="item">
 						<div className="ui label">Projects:</div>
 						<div className="ui list">
-							<div className="item">item</div>
+							{projects.map(function(data, i) {
+								return (<div className="item" key={i}>{data.project_name}</div>)
+							})}
 						</div>
 					</div>
 					<div className="item">
 						<div className="ui label">Certifications:</div>
 						<div className="ui list">
-							<div className="item">item</div>
+							{certs.map(function(data, i) {
+								return (<div className="item" key={i}>{data.certificate}</div>)
+							})}
 						</div>
 					</div>
 					<div className="item">
 						<div className="ui label">Skills:</div>
 						<div className="ui list">
-							<div className="item">item</div>
+							{skills.map(function(data, i) {
+								return (<div className="item" key={i}>{data.skill}</div>)
+							})}
 						</div>
 					</div>
 					<div className="item">
 						<div className="ui label">Interests:</div>
 						<div className="ui list">
-							<div className="item">item</div>
+							{interests.map(function(data, i) {
+								return (<div className="item" key={i}>{data.interest}</div>)
+							})}
 						</div>
 					</div>
 				</div>
