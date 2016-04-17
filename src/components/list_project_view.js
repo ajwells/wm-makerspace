@@ -11,7 +11,6 @@ class ProjectListItem extends React.Component {
 	}
 
 	clicked() {
-		console.log(this.props.data);
 		this.props.onClick(this.props.data.id);
 	}
 
@@ -50,7 +49,6 @@ export default class ListProjectView extends React.Component {
 	}	
 
 	handleClick(item) {
-		console.log(item);
 		this.setState({id: item});
 	}
 
