@@ -1,5 +1,8 @@
 import React from 'react';
 import MemberCard from './membercard';
+import Api from '../api';
+
+var API = new Api();
 
 class SignInItem extends React.Component {
 	render() {
@@ -35,9 +38,9 @@ export default class SignInView extends React.Component {
 
 	getSelected(id, data) {
 		var selected;
-		data.forEach(function(data) {
-			if (data.id === id) {
-				selected = data;
+		data.forEach(function(item) {
+			if ((item.id) == (id)) {
+				selected = item;
 			}
 		});
 		return selected;
@@ -45,7 +48,8 @@ export default class SignInView extends React.Component {
 
 	render() {
 
-		var data = [{id: '39120321', name: 'name 1', visit: '1'}, {id: '8008231', name: 'name 2', visit: '4'}];
+		//var data = [{id: '39120321', name: 'name 1', visit: '1'}, {id: '8008231', name: 'name 2', visit: '4'}];
+		var data = API.getUsers("notcurrent");
 		var idrows = [];
 		var rooms = ['SM143', 'SM235'];
 		var roomrows = [];
@@ -92,7 +96,7 @@ export default class SignInView extends React.Component {
 			</div>
 		</div>;
 
-		if (!this.state.id) {
+		if (!selected) {
 			var view = signin;
 		} else {
 			var card = <MemberCard onClick={this.handleClick.bind(this)} id={selected.id} name={selected.name} />
