@@ -28,6 +28,28 @@ export default class API {
 		return data;
 	}
 
+	getProjectInfo(type, id) {
+		var link = this.url + '/project/' + type + '/' + id;
+		var data;
+		$.ajaxSetup({async:false});
+		$.get(link, function(result) {
+			data = result;
+		});
+		$.ajaxSetup({async:true});
+		return data;
+	}
+
+	getProjectList() {
+		var link = this.url + "/projectlist";
+		var data;
+		$.ajaxSetup({async:false});
+		$.get(link, function(result) {
+			data = result;
+		});
+		$.ajaxSetup({async:true});
+		return data;
+	}
+
 	getImage2(name) {
 		var data = `${this.url}/images/${name}`;
 		return data;

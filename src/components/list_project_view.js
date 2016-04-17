@@ -11,6 +11,7 @@ class ProjectListItem extends React.Component {
 	}
 
 	clicked() {
+		console.log(this.props.data);
 		this.props.onClick(this.props.data.id);
 	}
 
@@ -21,8 +22,8 @@ class ProjectListItem extends React.Component {
 
 		return <tr onClick={this.clicked.bind(this)}>
 			<td>{name}</td>
-			<td>{budget}</td>
-			<td>{spent}</td>
+			<td>${budget}</td>
+			<td>${spent}</td>
 		</tr>;
 
 
@@ -49,6 +50,7 @@ export default class ListProjectView extends React.Component {
 	}	
 
 	handleClick(item) {
+		console.log(item);
 		this.setState({id: item});
 	}
 
@@ -64,7 +66,7 @@ export default class ListProjectView extends React.Component {
 
 	render() {
 
-		var data = [{id: '39120321', name: 'name 1', budget: '3211', spent: '124'}, {id: '8008231', name: 'name 2', budget: '4', spent: '2'}];
+		var data = API.getProjectList();
 		var rows = [];
 		var selected = this.getSelected(this.state.id, data);
 
@@ -72,7 +74,7 @@ export default class ListProjectView extends React.Component {
 			rows.push(<ProjectListItem onClick={this.handleClick.bind(this)} data={data} key={data.name} />)
 		}.bind(this));
 
-		var table = <table className="ui striped inverted yellow table">
+		var table = <table className="ui striped inverted yellow table" >
 			<thead><tr>
 				<th>Project Name</th>
 				<th>Budget</th>
@@ -88,7 +90,8 @@ export default class ListProjectView extends React.Component {
 		if (!this.state.id) {
 			view = table
 		} else {
-			var card = <ProjectCard onClick={this.handleClick.bind(this)} id={selected.id} name={selected.name} />
+			var remaining = (parseFloat(selected.budget) - parseFloat(selected.spent)).toFixed(2);
+			var card = <ProjectCard onClick={this.handleClick.bind(this)} id={selected.id} name={selected.name} remaining={remaining}/>
 			view = <div className="ui grid">
 				<div className="ten wide column">
 					{table}
