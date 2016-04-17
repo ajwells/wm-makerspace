@@ -3,7 +3,7 @@ import Api from '../api';
 
 var API = new Api();
 
-export default class MemberCard extends React.Component {
+export default class ProjectCard extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -35,27 +35,15 @@ export default class MemberCard extends React.Component {
 				</div>
 				<div className="ui divided list">
 					<div className="item">
-						<div className="ui label">Projects:</div>
+						<div className="ui label">Working On:</div>
 						<div className="ui list">
 							<div className="item">item</div>
 						</div>
 					</div>
 					<div className="item">
-						<div className="ui label">Certifications:</div>
+						<div className="ui label">Money Remaining:</div>
 						<div className="ui list">
-							<div className="item">item</div>
-						</div>
-					</div>
-					<div className="item">
-						<div className="ui label">Skills:</div>
-						<div className="ui list">
-							<div className="item">item</div>
-						</div>
-					</div>
-					<div className="item">
-						<div className="ui label">Interests:</div>
-						<div className="ui list">
-							<div className="item">item</div>
+							<div className="item">$$$</div>
 						</div>
 					</div>
 				</div>

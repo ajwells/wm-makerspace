@@ -96,11 +96,11 @@ export default class SignInView extends React.Component {
 			var view = signin;
 		} else {
 			var card = <MemberCard onClick={this.handleClick.bind(this)} id={selected.id} name={selected.name} />
-			var view = <div className="ui grid">
-				<div className="nine wide column">
+			var view = <div className="ui middle aligned grid">
+				<div className="ten wide column">
 					{signin}
 				</div>
-				<div className="two wide column">
+				<div className="one wide column">
 				</div>
 				<div className="four wide column">
 					{card}
