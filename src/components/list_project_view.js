@@ -15,13 +15,11 @@ class ProjectListItem extends React.Component {
 	}
 
 	render() {
-		var id = this.props.data.id;
 		var name = this.props.data.name;
 		var budget = this.props.data.budget;
 		var spent = this.props.data.spent;
 
 		return <tr onClick={this.clicked.bind(this)}>
-			<td>{id}</td>
 			<td>{name}</td>
 			<td>{budget}</td>
 			<td>{spent}</td>
@@ -76,8 +74,7 @@ export default class ListProjectView extends React.Component {
 
 		var table = <table className="ui striped inverted yellow table">
 			<thead><tr>
-				<th>Project ID</th>
-				<th>Name</th>
+				<th>Project Name</th>
 				<th>Budget</th>
 				<th>Spent</th>
 			</tr></thead>
