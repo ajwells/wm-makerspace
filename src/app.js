@@ -2,15 +2,18 @@ import React from 'react';
 import MemberView from './components/member_view';
 import ProjectView from './components/project_view';
 import HomeView from './components/home_view';
+import SignView from './components/sign_view';
 
 const MAIN = 'Home';
 const USER = 'Members';
 const PROJECT = 'Projects';
+const SIGN = 'Sign In/Out';
 
 const views = {
 	[MAIN]: 'Home',
 	[USER]: 'Members',
-	[PROJECT]: 'Projects'
+	[PROJECT]: 'Projects',
+	[SIGN]: 'Sign In/Out'
 };
 
 
@@ -47,6 +50,9 @@ export default class App extends React.Component {
 				<a onClick={this.changeView.bind(this, PROJECT)} className={`item ${isActive(PROJECT)}`}>
 					Projects
 				</a>
+				<a onClick={this.changeView.bind(this, SIGN)} className={`item ${isActive(SIGN)}`}>
+					Sign In/Out
+				</a>
 				<div className='item'></div>
 			</div>
 
@@ -63,6 +69,8 @@ export default class App extends React.Component {
 				{view === USER && <MemberView  />}
 
 				{view === PROJECT && <ProjectView  />}
+
+				{view === SIGN && <SignView  />}
 			</div>
 			</div>
 			</div>

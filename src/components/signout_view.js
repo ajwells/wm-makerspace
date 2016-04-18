@@ -4,7 +4,7 @@ import Api from '../api';
 
 var API = new Api();
 
-class SignInItem extends React.Component {
+class SignOutItem extends React.Component {
 	render() {
 		var item = this.props.item;
 
@@ -14,7 +14,7 @@ class SignInItem extends React.Component {
 	}
 }
 
-export default class SignInView extends React.Component {
+export default class SignOutView extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -48,31 +48,22 @@ export default class SignInView extends React.Component {
 
 	render() {
 
-		var data = API.getUsers("notcurrent");
+		var data = API.getUsers("current");
 		var idrows = [];
-		var rooms = ['SM143', 'SM235'];
-		var roomrows = [];
 		var selected = this.getSelected(this.state.id, data);
 
 		data.forEach(function(data, index) {
-			idrows.push(<SignInItem item={data.id} key={index} />);
-		});
-		rooms.forEach(function(item, index) {
-			roomrows.push(<SignInItem item={item} key={index} />);
+			idrows.push(<SignOutItem item={data.id} key={index} />);
 		});
 
 		var idDrop = <select value={this.state.id} className="ui search dropdown" id="idDrop" onChange={this.handleUpdate.bind(this, 'ID')}>
 			<option value=""></option>
 			{idrows}
 		</select>
-		var roomDrop = <select value={this.state.room} className="ui search dropdown" id="roomDrop" onChange={this.handleUpdate.bind(this, 'ROOM')}>
-			<option value=""></option>
-			{roomrows}
-		</select>
 
-		var signin = <div className="ui yellow inverted segment" style={{paddingTop: '50px', paddingBottom: '60px'}}>
+		var signout = <div className="ui yellow inverted segment" style={{paddingTop: '50px', paddingBottom: '60px'}}>
 			<div className="ui grid">
-				<div className="six wide column">
+				<div className="twelve wide column">
 					<div className="ui inverted form">	
 						<div className="field">
 						<label>Member ID</label>
@@ -80,28 +71,20 @@ export default class SignInView extends React.Component {
 						</div>
 					</div>
 				</div>
-				<div className="five wide column">
-					<div className="ui inverted form">	
-						<div className="field">
-						<label>Room</label>
-							{roomDrop}
-						</div>
-					</div>
-				</div>
 				<div className="four wide column">
 					<div style={{paddingTop: '24px'}}></div>
-					<div className="ui fluid button">Sign In</div>
+					<div className="ui fluid button">Sign Out</div>
 				</div>
 			</div>
 		</div>;
 
 		if (!selected) {
-			var view = signin;
+			var view = signout;
 		} else {
 			var card = <MemberCard onClick={this.handleClick.bind(this)} id={selected.id} name={selected.name} />
 			var view = <div className="ui middle aligned grid">
 				<div className="ten wide column">
-					{signin}
+					{signout}
 				</div>
 				<div className="one wide column">
 				</div>

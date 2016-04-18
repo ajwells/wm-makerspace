@@ -6,6 +6,17 @@ export default class API {
 		this.url = "http://ec2-52-91-5-18.compute-1.amazonaws.com:12000";
 	}
 
+	getCounts(type) {
+		var link = this.url + '/counts/' + type;
+		var data;
+		$.ajaxSetup({async:false});
+		$.get(link, function(result) {
+			data = result;
+		});
+		$.ajaxSetup({async:true});
+		return data;
+	}
+
 	getUsers(type) {
 		var link = this.url + '/makerspace/' + type;
 		var data;

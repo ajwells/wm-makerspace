@@ -1,13 +1,13 @@
 import React from 'react';
-import SignInView from './signin_view';
+import VisitView from './visit_view';
 
-const MAIN = 'Sign In';
-const NEW = 'New';
+const MAIN = 'The Makerspace';
+const VISIT = 'When to Visit';
 const UPDATE = 'Update';
 
 const views = {
-	[MAIN]: 'Sign In',
-	[NEW]: 'New',
+	[MAIN]: 'The Makerspace',
+	[VISIT]: 'When to Visit',
 	[UPDATE]: 'Update'
 };
 
@@ -31,17 +31,17 @@ export default class HomeView extends React.Component {
 		return <div>
 			<div className="ui yellow secondary pointing menu">	
 				<a style={{color: 'white'}} onClick={this.changeView.bind(this, MAIN)} className={`item ${isActive(MAIN)}`}>
-					Sign In
+					The Makerspace
 				</a>
-				<a style={{color: 'white'}} onClick={this.changeView.bind(this, NEW)} className={`item ${isActive(NEW)}`}>
-					New	
+				<a style={{color: 'white'}} onClick={this.changeView.bind(this, VISIT)} className={`item ${isActive(VISIT)}`}>
+					When to Visit
 				</a>
 				<a style={{color: 'white'}} onClick={this.changeView.bind(this, UPDATE)} className={`item ${isActive(UPDATE)}`}>
 					Update
 				</a>
 			</div>
 
-			{view === MAIN && <SignInView />} 
+			{view === VISIT && <VisitView />}
 
 		</div>;
 	}
