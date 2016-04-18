@@ -10,14 +10,21 @@ export default class CountRadarChart extends React.Component {
 		super(props);
 	}
 
-	render() {
-		var rawdata = API.getCounts('interest');
+	updateData(rawdata) {	
 		var counts = [];
 		var labels = [];
 		rawdata.forEach(function(item, index) {
 			counts.push(item.count);
-			labels.push(item.interest);
+			labels.push(item.item);
 		});
+		return {counts: counts, labels: labels};
+	}
+
+	render() {
+		var rawdata = API.getCounts(this.props.type);
+		var updated_data = this.updateData(rawdata);
+		var counts = updated_data.counts;
+		var labels = updated_data.labels;
 		var data = {
 			labels: labels,
 			datasets: [
@@ -34,7 +41,7 @@ export default class CountRadarChart extends React.Component {
 			]
 		};
 		return <div style={{textAlign: 'center'}}>
-			<RadarChart data={data} width='800' height='1000' style={{display: 'inline-block'}}/>
+			<RadarChart id='chart' data={data} width='590' height='565' style={{display: 'inline-block'}} redraw/>
 		</div>
 	}
 }

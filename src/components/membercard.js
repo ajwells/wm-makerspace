@@ -16,11 +16,14 @@ export default class MemberCard extends React.Component {
 	render() {
 		
 		var certs = API.getMemberInfo('certs', this.props.id);
+		var certsList = [];
 		var skills = API.getMemberInfo('skills', this.props.id);
+		var skillsList = [];
 		var interests = API.getMemberInfo('interests', this.props.id);
 		var projects = API.getMemberInfo('projects', this.props.id);
 		var name = this.props.name;
 		var url = API.getImage2("test");
+
 
 		return <div style={{position: 'fixed', top: '153px'}}>	
 		<div className="ui card">
@@ -48,6 +51,7 @@ export default class MemberCard extends React.Component {
 						<div className="ui label">Certifications:</div>
 						<div className="ui list">
 							{certs.map(function(data, i) {
+								certsList.push(data.certificate);
 								return (<div className="item" key={i}>{data.certificate}</div>)
 							})}
 						</div>
@@ -56,7 +60,11 @@ export default class MemberCard extends React.Component {
 						<div className="ui label">Skills:</div>
 						<div className="ui list">
 							{skills.map(function(data, i) {
-								return (<div className="item" key={i}>{data.skill}</div>)
+								skillsList.push(data.skill);
+								if ((certsList.indexOf(data.skill)) == -1) {
+									return (<div className="item" key={i}>{data.skill}</div>);
+								}
+								return;
 							})}
 						</div>
 					</div>
@@ -64,7 +72,10 @@ export default class MemberCard extends React.Component {
 						<div className="ui label">Interests:</div>
 						<div className="ui list">
 							{interests.map(function(data, i) {
-								return (<div className="item" key={i}>{data.interest}</div>)
+								if ((skillsList.indexOf(data.interest)) == -1) {
+									return (<div className="item" key={i}>{data.interest}</div>)
+								}
+								return;
 							})}
 						</div>
 					</div>
