@@ -33,7 +33,8 @@ export default class CountRadarChart extends React.Component {
 				}
 			]
 		};
-		console.log(data);
-		return <RadarChart data={data} width='800' height='1000'/>
+		return <div style={{textAlign: 'center'}}>
+			<RadarChart data={data} width='800' height='1000' style={{display: 'inline-block'}}/>
+		</div>
 	}
 }
