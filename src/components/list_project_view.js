@@ -72,7 +72,7 @@ export default class ListProjectView extends React.Component {
 			rows.push(<ProjectListItem onClick={this.handleClick.bind(this)} data={data} key={data.name} />)
 		}.bind(this));
 
-		var table = <table className="ui striped inverted yellow table" >
+		var table = <table className="ui striped yellow table" >
 			<thead><tr>
 				<th>Project Name</th>
 				<th>Budget</th>

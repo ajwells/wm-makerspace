@@ -36,8 +36,8 @@ export default class OurMemberView extends React.Component {
 
 		return <div className="ui grid"> 
 			<div className="four wide column">
-				<div className="ui inverted yellow segment" >
-					<div className="ui inverted form" style={{padding: '30px'}}>	
+				<div className="ui yellow segment" >
+					<div className="ui form" style={{padding: '30px'}}>	
 						<div className="field">
 						<label>Our Members are</label>
 							{typeDrop}
@@ -47,7 +47,7 @@ export default class OurMemberView extends React.Component {
 			</div>
 			<div className="two wide column"></div>
 			<div className="eight wide column">
-				<div className="ui inverted yellow segment">
+				<div className="ui yellow segment">
 					<CountRadarChart type={type}/>
 				</div>
 			</div>

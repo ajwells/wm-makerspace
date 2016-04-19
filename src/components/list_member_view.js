@@ -70,7 +70,7 @@ export default class ListMemberView extends React.Component {
 			rows.push(<MemberListItem onClick={this.handleClick.bind(this)} id={data.id} name={data.name} visit={data.visit} key={data.name} />)
 		}.bind(this));
 
-		var list = <table className="ui striped inverted yellow table">
+		var list = <table className="ui striped yellow table">
 			<thead><tr>
 				<th>Member Name</th>
 				<th>Visits</th>

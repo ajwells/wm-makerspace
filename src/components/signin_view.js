@@ -70,10 +70,10 @@ export default class SignInView extends React.Component {
 			{roomrows}
 		</select>
 
-		var signin = <div className="ui yellow inverted segment" style={{paddingTop: '50px', paddingBottom: '60px'}}>
+		var signin = <div className="ui yellow segment" style={{paddingTop: '50px', paddingBottom: '60px'}}>
 			<div className="ui grid">
 				<div className="six wide column">
-					<div className="ui inverted form">	
+					<div className="ui form">	
 						<div className="field">
 						<label>Member ID</label>
 							{idDrop}
@@ -81,7 +81,7 @@ export default class SignInView extends React.Component {
 					</div>
 				</div>
 				<div className="five wide column">
-					<div className="ui inverted form">	
+					<div className="ui form">	
 						<div className="field">
 						<label>Room</label>
 							{roomDrop}

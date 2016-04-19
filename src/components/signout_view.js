@@ -61,10 +61,10 @@ export default class SignOutView extends React.Component {
 			{idrows}
 		</select>
 
-		var signout = <div className="ui yellow inverted segment" style={{paddingTop: '50px', paddingBottom: '60px'}}>
+		var signout = <div className="ui yellow segment" style={{paddingTop: '50px', paddingBottom: '60px'}}>
 			<div className="ui grid">
 				<div className="twelve wide column">
-					<div className="ui inverted form">	
+					<div className="ui form">	
 						<div className="field">
 						<label>Member ID</label>
 							{idDrop}
