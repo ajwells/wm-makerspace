@@ -31,24 +31,20 @@ export default class OurMemberView extends React.Component {
 		var view = this.state.type;
 		var isActive = v => v === view ? 'active' : '';
 
-		return <div className="ui yellow segment">
-			<div className="ui grid"> 
-				<div className="four wide column">
-					<div className="ui vertical pointing  menu">
-						<a onClick={this.handleUpdate.bind(this, 'interests')} className={`item ${isActive('interests')}`}>
-							Interests	
-						</a>
-						<a onClick={this.handleUpdate.bind(this, 'skills')} className={`item ${isActive('skills')}`}>
-							Skills	
-						</a>
-						<a onClick={this.handleUpdate.bind(this, 'certifications')} className={`item ${isActive('certifications')}`}>
-							Certifications	
-						</a>
-					</div>
-				</div>
-				<div className="twelve wide column">
-					<CountRadarChart type={this.state.type} />
-				</div>
+		return <div>
+			<div className="ui top attached menu">
+				<a onClick={this.handleUpdate.bind(this, 'interests')} className={`item ${isActive('interests')}`}>
+					Interests	
+				</a>
+				<a onClick={this.handleUpdate.bind(this, 'skills')} className={`item ${isActive('skills')}`}>
+					Skills	
+				</a>
+				<a onClick={this.handleUpdate.bind(this, 'certifications')} className={`item ${isActive('certifications')}`}>
+					Certifications	
+				</a>
+			</div>
+			<div className="ui yellow attached segment">
+				<CountRadarChart type={this.state.type} />
 			</div>
 		</div>
 	}
