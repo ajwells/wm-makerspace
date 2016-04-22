@@ -84,8 +84,8 @@ export default class NewMemberView extends React.Component {
 		}.bind(this));
 		
 		return <div>
-			<div className="ui yellow inverted segment">
-			<form className="ui inverted form">
+			<div className="ui yellow segment">
+			<form className="ui form">
 				<div className="two fields">
 				<div className="required field">
 					<label>ID</label>
