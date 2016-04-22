@@ -72,6 +72,17 @@ export default class API {
 		return data;
 	}
 
+	getInterestList() {
+		var link = this.url + "/interestlist";
+		var data;
+		$.ajaxSetup({async:false});
+		$.get(link, function(result) {
+			data = result;
+		});
+		$.ajaxSetup({async:true});
+		return data;
+	}
+
 	getImage2(name) {
 		var data = `${this.url}/images/${name}`;
 		return data;

@@ -1,7 +1,10 @@
 import React from 'react';
 import CountRadarChart from './count_radar_chart';
+import Api from '../api';
 
-export default class VisitView extends React.Component {
+var API = new Api();
+
+export default class OurMemberView extends React.Component {
 	
 	constructor(props) {
 		super(props);
@@ -10,8 +13,8 @@ export default class VisitView extends React.Component {
 		}
 	}
 
-	handleUpdate(e) {
-		this.setState({type: e.target.value});
+	handleUpdate(item) {
+		this.setState({type: item});
 	}
 
 	getSelected(id, data) {
@@ -26,27 +29,30 @@ export default class VisitView extends React.Component {
 
 	render() {
 		
-		var types = ['interest'];
-		var type = this.state.type;
-		var typeDrop = <select value={this.state.id} className="ui compact search dropdown" id="idDrop" onChange={this.handleUpdate.bind(this)}>
-			<option value='interests'>interested in</option>
-			<option value='skills'>skilled in</option>
-			<option value='certifications'>certified in</option>
-		</select>
+		var interests = API.getInterestList();
+		var items =[]
+		
+		var view = this.state.type;
+		var isActive = v => v === view ? 'active' : '';
+		
+		interests.forEach(function(data, i) {
+			items.push(<a onClick={this.handleUpdate.bind(this, data.interest)} className={`item ${isActive(data.interest)}`} key={i}>{data.interest}</a>)
+		}.bind(this));
 
-		return <div className="ui inverted yellow segment">
-			<div className="ui grid">
-			<div className="three wide column">
-			<div className="ui inverted form" style={{paddingLeft: '30px', paddingTop: '20px'}}>	
-				<div className="field">
-				<label>Our Members are</label>
-					{typeDrop}
+
+		return <div>
+			<div className="ui yellow segment">
+				<div className="ui grid">
+					<div className="four wide column">
+						<div className="ui vertical pointing menu">
+							<div className="item"><h3>I want to learn ...</h3></div>
+							{items}
+						</div>
+					</div>
+					<div className="twelve wide column">
+						<CountRadarChart type={this.state.type} />
+					</div>
 				</div>
-			</div>
-			</div>
-			<div className="three wide column">
-			</div>
-			<CountRadarChart type={type}/>
 			</div>
 		</div>
 	}
