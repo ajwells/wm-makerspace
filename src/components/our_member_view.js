@@ -1,5 +1,5 @@
 import React from 'react';
-import CountRadarChart from './count_radar_chart';
+import CountBarChart from './count_bar_chart';
 
 
 export default class OurMemberView extends React.Component {
@@ -44,7 +44,9 @@ export default class OurMemberView extends React.Component {
 				</a>
 			</div>
 			<div className="ui yellow attached segment">
-				<CountRadarChart type={this.state.type} />
+				<div style={{paddingTop: '10px'}}>
+					<CountBarChart type={this.state.type} />
+				</div>
 			</div>
 		</div>
 	}

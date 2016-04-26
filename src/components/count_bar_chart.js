@@ -1,10 +1,10 @@
 import React from 'react';
 import Api from '../api';
-const RadarChart = require('react-chartjs').Radar;
+const BarChart = require('react-chartjs').Bar;
 
 var API = new Api();
 
-export default class CountRadarChart extends React.Component {
+export default class CountBarChart extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -41,7 +41,7 @@ export default class CountRadarChart extends React.Component {
 			]
 		};
 		return <div style={{textAlign: 'center'}}>
-			<RadarChart id='chart' data={data} width='590' height='565' style={{display: 'inline-block'}} redraw/>
+			<BarChart id='chart' data={data} width='1000' height='545' style={{display: 'inline-block'}} redraw/>
 		</div>
 	}
 }

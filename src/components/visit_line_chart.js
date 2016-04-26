@@ -45,7 +45,7 @@ export default class VisitLineChart extends React.Component {
 				}
 			]
 		};
-		return <div style={{textAlign: 'center', paddingTop: '100px'}}>
+		return <div style={{textAlign: 'center', paddingTop: '30px'}}>
 			<LineChart id='chart' data={data} width='700' height='565' style={{display: 'inline-block'}} redraw/>
 		</div>
 	}

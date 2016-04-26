@@ -38,6 +38,7 @@ export default class ListMemberView extends React.Component {
 	}
 
 	componentDidMount() {
+
 		/*var url = API.url + "/memberlist";
 		$.ajaxSetup({async:false});
 		$.get(url, function(result) {
