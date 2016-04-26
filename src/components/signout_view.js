@@ -81,7 +81,7 @@ export default class SignOutView extends React.Component {
 		if (!selected) {
 			var view = signout;
 		} else {
-			var card = <MemberCard onClick={this.handleClick.bind(this)} id={selected.id} name={selected.name} />
+			var card = <MemberCard onClick={this.handleClick.bind(this)} id={selected.id} name={selected.name} last_visit={selected.last_visit} />
 			var view = <div className="ui middle aligned grid">
 				<div className="ten wide column">
 					{signout}

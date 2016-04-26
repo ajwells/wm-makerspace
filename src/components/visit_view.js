@@ -1,5 +1,5 @@
 import React from 'react';
-import CountRadarChart from './count_radar_chart';
+import VisitLineChart from './visit_line_chart';
 import Api from '../api';
 
 var API = new Api();
@@ -43,14 +43,14 @@ export default class OurMemberView extends React.Component {
 		return <div>
 			<div className="ui yellow segment">
 				<div className="ui grid">
-					<div className="four wide column">
+					<div className="three wide column">
 						<div className="ui vertical pointing menu">
 							<div className="item"><h3>I want to learn ...</h3></div>
 							{items}
 						</div>
 					</div>
-					<div className="twelve wide column">
-						<CountRadarChart type={this.state.type} />
+					<div className="thirteen wide column">
+						<VisitLineChart type={this.state.type} />
 					</div>
 				</div>
 			</div>

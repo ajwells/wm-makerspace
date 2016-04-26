@@ -36,7 +36,7 @@ export default class MemberCard extends React.Component {
 			<div className="content">
 				<div className="header">{name}</div>
 				<div className="meta">
-					<span className="date">Last Visit: {this.props.last_visit}</span>
+					<span className="date">Last Visit: {this.props.last_visit.split('T')[0]}</span>
 				</div>
 				<div className="ui divided list">
 					<div className="item">

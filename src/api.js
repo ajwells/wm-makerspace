@@ -82,6 +82,17 @@ export default class API {
 		$.ajaxSetup({async:true});
 		return data;
 	}
+	
+	getTimes(type) {
+		var link = this.url + '/time/' + type;
+		var data;
+		$.ajaxSetup({async:false});
+		$.get(link, function(result) {
+			data = result;
+		});
+		$.ajaxSetup({async:true});
+		return data;
+	}
 
 	getImage2(name) {
 		var data = `${this.url}/images/${name}`;

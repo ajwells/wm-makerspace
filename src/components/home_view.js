@@ -1,6 +1,7 @@
 import React from 'react';
 import OurMemberView from './our_member_view';
 import VisitView from './visit_view';
+import MakerspaceView from './makerspace_view';
 
 const MAIN = 'The Makerspace';
 const DETAIL = 'Our Members';
@@ -41,6 +42,8 @@ export default class HomeView extends React.Component {
 					When to Visit
 				</a>
 			</div>
+			
+			{view === MAIN && <MakerspaceView />}
 
 			{view === DETAIL && <OurMemberView />}
 
