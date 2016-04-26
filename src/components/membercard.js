@@ -22,10 +22,11 @@ export default class MemberCard extends React.Component {
 		var interests = API.getMemberInfo('interests', this.props.id);
 		var projects = API.getMemberInfo('projects', this.props.id);
 		var name = this.props.name;
-		var url = API.getImage2("test");
+		var url = API.getImage2("matthew.png");
 
 
-		return <div style={{position: 'fixed', top: '153px'}}>	
+		return <div>
+		{/*<div style={{position: 'fixed', top: '153px'}}>*/}
 		<div className="ui card">
 			<div className="image" style={{position: 'relative'}}>
 				<button className="ui compact right floated negative icon button" style={{position: 'absolute', right: '5px', top: '5px'}} onClick={this.clicked.bind(this)}>

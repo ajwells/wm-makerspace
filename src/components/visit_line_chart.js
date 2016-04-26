@@ -15,8 +15,9 @@ export default class VisitLineChart extends React.Component {
 		rawdata.forEach(function(item, index) {
 			var start = item.time_in;
 			var end = item.time_out;
-			for (var i = start; i < end; i++){
-				times[i] = times[i] + 1;
+			while (start != end) {
+				times[start] = times[start] + 1;
+				start = (start + 1) % 24;
 			}
 		});
 		return times;

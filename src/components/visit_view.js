@@ -4,13 +4,18 @@ import Api from '../api';
 
 var API = new Api();
 
-export default class OurMemberView extends React.Component {
+export default class VisitView extends React.Component {
 	
 	constructor(props) {
 		super(props);
 		this.state = {
 			type: 'interests'
 		}
+	}
+
+	componentDidMount() {
+		var item = API.getInterestList()[0].interest;
+		this.setState({type : item});
 	}
 
 	handleUpdate(item) {

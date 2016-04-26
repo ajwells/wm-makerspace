@@ -19,7 +19,7 @@ export default class ProjectCard extends React.Component {
 	render() {
 		var name = this.props.name;
 		var id = this.props.id;
-		var url = API.getImage2("test");
+		var url = API.getImage2("project.jpg");
 		var members = API.getProjectInfo("members", id);
 
 		return <div>	

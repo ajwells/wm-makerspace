@@ -89,7 +89,7 @@ export default class SignOutView extends React.Component {
 				<div className="one wide column">
 				</div>
 				<div className="four wide column">
-					{card}
+					<div style={{textAlign: 'center'}}><div sytle={{display: 'inline-block'}}>{card}</div></div>
 				</div>
 			</div>
 		}

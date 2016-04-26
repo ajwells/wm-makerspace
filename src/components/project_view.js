@@ -1,5 +1,6 @@
 import React from 'react';
 import ListProjectView from './list_project_view';
+import NewProjectView from './new_project_view';
 
 const MAIN = 'List';
 const NEW = 'New';
@@ -42,6 +43,8 @@ export default class ProjectView extends React.Component {
 			</div>
 			
 			{view === MAIN && <ListProjectView />} 
+
+			{view === NEW && <NewProjectView />} 
 		</div>;
 	}
 }

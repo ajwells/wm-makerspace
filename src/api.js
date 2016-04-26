@@ -83,6 +83,17 @@ export default class API {
 		return data;
 	}
 	
+	getDays() {
+		var link = this.url + '/day';
+		var data;
+		$.ajaxSetup({async:false});
+		$.get(link, function(result) {
+			data = result;
+		});
+		$.ajaxSetup({async:true});
+		return data;
+	}
+
 	getTimes(type) {
 		var link = this.url + '/time/' + type;
 		var data;
