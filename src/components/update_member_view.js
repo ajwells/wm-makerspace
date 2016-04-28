@@ -129,18 +129,56 @@ export default class UpdateMemberView extends React.Component {
 		//member card
 		var selected = this.getSelected(this.state.id, data);
 		var card;
-		var certs = [];
-		var skills = [];
-		var interests = [];
+		var certs;
+		var skills;
+		var interests;
 		var length;
 		if (selected) {
 			length = "twelve wide column"
 			card = (<div className="four wide column" ><div style={{textAlign: 'center'}}><div sytle={{display: 'inline-block'}}>
 				<MemberCard onClick={this.handleClick.bind(this)} id={selected.id} name={selected.name} last_visit={selected.last_visit}/>
 				</div></div></div>);
-			certs = API.getMemberInfo('certs', this.state.id);
-			skills = API.getMemberInfo('skills', this.state.id);
-			interests = API.getMemberInfo('interests', this.state.id);
+			var certsList = [];
+			certs = API.getMemberInfo('certs', this.state.id).map(function(data, i) {
+				certsList.push(data.certificate);
+					return (<div className="ui left labeled button" tabIndex="0" key={i}>
+							<div className="ui basic label">
+								{data.certificate}
+							</div>
+							<div className="ui negative icon button" onClick={this.deleteItem.bind(this, CERT, data.certificate)}>
+								<i className="remove icon"></i>
+							</div>
+						</div>);
+			}.bind(this));
+			var skillsList = [];
+			skills = API.getMemberInfo('skills', this.state.id).map(function(data, i) {
+				skillsList.push(data.skill);
+				if ((certsList.indexOf(data.skill)) == -1) {
+					return (<div className="ui left labeled button" tabIndex="0" key={i}>
+							<div className="ui basic label">
+								{data.skill}
+							</div>
+							<div className="ui negative icon button" onClick={this.deleteItem.bind(this, SKILL, data.skill)}>
+								<i className="remove icon"></i>
+							</div>
+						</div>);
+				}
+				return;
+			}.bind(this));
+			interests = API.getMemberInfo('interests', this.state.id).map(function(data, i) {
+				if ((skillsList.indexOf(data.interest)) == -1) {
+					return (<div className="ui left labeled button" tabIndex="0" key={i}>
+							<div className="ui basic label">
+								{data.interest}
+							</div>
+							<div className="ui negative icon button" onClick={this.deleteItem.bind(this, INTEREST, data.interest)}>
+								<i className="remove icon"></i>
+							</div>
+						</div>);
+				}
+				return;
+			}.bind(this));
+
 		} else {
 			length = "sixteen wide column"
 			selected = {}
@@ -196,16 +234,7 @@ export default class UpdateMemberView extends React.Component {
 				</div>
 				<div className="ui hidden divider"></div>
 				<div>
-					{interests.map(function(data, i) {
-						return (<div className="ui left labeled button" tabIndex="0" key={i}>
-								<div className="ui basic label">
-									{data.interest}
-								</div>
-								<div className="ui negative icon button" onClick={this.deleteItem.bind(this, INTEREST, data.interest)}>
-									<i className="remove icon"></i>
-								</div>
-							</div>);
-					}.bind(this))}
+					{interests}
 				</div>
 				<div className="ui hidden divider"></div>
 				<div>
@@ -227,16 +256,7 @@ export default class UpdateMemberView extends React.Component {
 				</div>
 				<div className="ui hidden divider"></div>
 				<div>
-					{skills.map(function(data, i) {
-						return (<div className="ui left labeled button" tabIndex="0" key={i}>
-								<div className="ui basic label">
-									{data.skill}
-								</div>
-								<div className="ui negative icon button" onClick={this.deleteItem.bind(this, SKILL, data.skill)}>
-									<i className="remove icon"></i>
-								</div>
-							</div>);
-					}.bind(this))}
+					{skills}
 				</div>
 				<div className="ui hidden divider"></div>
 				<div>
@@ -258,16 +278,7 @@ export default class UpdateMemberView extends React.Component {
 				</div>
 				<div className="ui hidden divider"></div>
 				<div>
-					{certs.map(function(data, i) {
-						return (<div className="ui left labeled button" tabIndex="0" key={i}>
-								<div className="ui basic label">
-									{data.certificate}
-								</div>
-								<div className="ui negative icon button" onClick={this.deleteItem.bind(this, CERT, data.certificate)}>
-									<i className="remove icon"></i>
-								</div>
-							</div>);
-					}.bind(this))}
+					{certs}
 				</div>
 				<div className="ui hidden divider"></div>
 				<div>
