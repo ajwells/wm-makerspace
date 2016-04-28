@@ -58,12 +58,21 @@ export default class NewProjectView extends React.Component {
 		console.log(this.state[BUDGET]);
 		console.log(this.state[NAME]);
 		console.log(this.state[MEMBERS]);
+		if (this.state[NAME] == '' || this.state[BUDGET] == '') {
+			return;
+		}
 		var data = {
 			name: this.state[NAME],
 			budget: this.state[BUDGET],
 			members: this.state[MEMBERS]
 		}
-		API.newProject(data);
+		var res = API.newProject(data);
+		if (res == 200) {
+			this.setState({[NAME]: ''});
+			this.setState({[BUDGET]: ''});
+			this.setState({[MEMBERS]: []});
+			this.forceUpdate();
+		}
 	}
 
 

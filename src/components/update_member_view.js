@@ -108,7 +108,10 @@ export default class UpdateMemberView extends React.Component {
 			skills: this.state[SKILL],
 			certs: this.state[CERT]
 		};
-		API.newMember(data);
+		var res = API.updateMember(data);
+		if (res == 200) {
+			this.forceUpdate();
+		}
 	}
 
 

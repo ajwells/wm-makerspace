@@ -26,6 +26,8 @@ export default class MemberView extends React.Component {
 		this.setState({ view });
 	}
 
+
+
 	render() {
 		var view = this.state.view;
 		var isActive = v => v === view ? 'active' : '';

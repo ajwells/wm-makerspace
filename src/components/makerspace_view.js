@@ -65,6 +65,9 @@ export default class MakerspaceView extends React.Component {
 		var card;
 		if (selected) {
 			var card = <MemberCard onClick={this.handleClick.bind(this)} id={selected.id} name={selected.name} last_visit={selected.last_visit}/>
+			var graphData = API.getMemberTimes(this.state.id);
+		} else {
+			var graphData = API.getTimes('all');
 		}
 
 		var view = <div className="ui grid">
@@ -79,7 +82,7 @@ export default class MakerspaceView extends React.Component {
 			</div>
 			<div className="twelve wide column">
 				<div className="ui yellow segment">
-					<MakerspaceBarChart />
+					<MakerspaceBarChart data={graphData}/>
 				</div>
 			</div>
 		</div>;

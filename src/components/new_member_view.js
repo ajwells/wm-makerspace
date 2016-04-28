@@ -64,6 +64,9 @@ export default class NewMemberView extends React.Component {
 		console.log(this.state[INTEREST]);
 		console.log(this.state[SKILL]);
 		console.log(this.state[CERT]);
+		if (this.state[ID] == '' || this.state[NAME] == '') {
+			return;
+		}
 		var data = {
 			id: this.state[ID],
 			name: this.state[NAME],
@@ -71,7 +74,16 @@ export default class NewMemberView extends React.Component {
 			skills: this.state[SKILL],
 			certs: this.state[CERT]
 		};
-		API.newMember(data);
+		var res = API.newMember(data);
+		console.log(res == '200');
+		if (res == '200') {
+			this.setState({[NAME]: ''});
+			this.setState({[ID]: ''});
+			this.setState({[INTEREST]: []});
+			this.setState({[SKILL]: []});
+			this.setState({[CERT]: []});
+			this.forceUpdate();
+		}
 	}
 
 

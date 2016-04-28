@@ -94,6 +94,17 @@ export default class API {
 		return data;
 	}
 
+	getMemberTimes(id) {
+		var link = this.url + '/member/time/' + id;
+		var data;
+		$.ajaxSetup({async:false});
+		$.get(link, function(result) {
+			data = result;
+		});
+		$.ajaxSetup({async:true});
+		return data;
+	}
+
 	getTimes(type) {
 		var link = this.url + '/time/' + type;
 		var data;
@@ -182,6 +193,42 @@ export default class API {
 		return res.status;
 	}
 
+	updateMember(data) {
+		var link = this.url + '/update/member';
+		var JSONdata = JSON.stringify(data);
+		$.ajaxSetup({async:false});
+		var res = $.ajax({
+			url: link, 
+			type: "POST",
+			data: JSONdata, 
+			contentType: "application/json; charset=utf-8",
+			dataType: "json",
+			function(response) {
+				return response;
+			}
+		});
+		$.ajaxSetup({async:true});
+		return res.status;
+	}
+
+	updateProject(data) {
+		var link = this.url + '/update/project';
+		var JSONdata = JSON.stringify(data);
+		$.ajaxSetup({async:false});
+		var res = $.ajax({
+			url: link, 
+			type: "POST",
+			data: JSONdata, 
+			contentType: "application/json; charset=utf-8",
+			dataType: "json",
+			function(response) {
+				return response;
+			}
+		});
+		$.ajaxSetup({async:true});
+		return res.status;
+	}
+
 	deleteMemberInfo(type, id, item) {
 		var link = this.url + '/delete/' + type + '/' + id + '/' + item;
 		$.ajaxSetup({async:false});
@@ -198,4 +245,5 @@ export default class API {
 		$.ajaxSetup({async:true});
 		return res.status;
 	}
+
 }

@@ -23,6 +23,10 @@ export default class MemberCard extends React.Component {
 		var projects = API.getMemberInfo('projects', this.props.id);
 		var name = this.props.name;
 		var url = API.getImage2("matthew.png");
+		var lastVisit = this.props.last_visit;
+		if (!lastVisit) {
+			lastVisit = 'T';
+		}
 
 
 		return <div>
@@ -37,7 +41,7 @@ export default class MemberCard extends React.Component {
 			<div className="content">
 				<div className="header">{name}</div>
 				<div className="meta">
-					<span className="date">Last Visit: {this.props.last_visit.split('T')[0]}</span>
+					<span className="date">Last Visit: {lastVisit.split('T')[0]}</span>
 				</div>
 				<div className="ui divided list">
 					<div className="item">

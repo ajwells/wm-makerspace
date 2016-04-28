@@ -34,8 +34,7 @@ export default class ListProjectView extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			id: false,
-			data: API.getMemberList()
+			id: false
 		}
 	}
 
@@ -68,8 +67,8 @@ export default class ListProjectView extends React.Component {
 		var rows = [];
 		var selected = this.getSelected(this.state.id, data);
 
-		data.forEach(function(data) {
-			rows.push(<ProjectListItem onClick={this.handleClick.bind(this)} data={data} key={data.name} />)
+		data.forEach(function(data, index) {
+			rows.push(<ProjectListItem onClick={this.handleClick.bind(this)} data={data} key={index} />)
 		}.bind(this));
 
 		var table = <table className="ui striped yellow table" >

@@ -67,8 +67,8 @@ export default class ListMemberView extends React.Component {
 		var rows = [];
 		var selected = this.getSelected(this.state.id, data);
 
-		data.forEach(function(data) {
-			rows.push(<MemberListItem onClick={this.handleClick.bind(this)} id={data.id} name={data.name} visit={data.visit} key={data.name} />)
+		data.forEach(function(data, index) {
+			rows.push(<MemberListItem onClick={this.handleClick.bind(this)} id={data.id} name={data.name} visit={data.visit} key={index} />)
 		}.bind(this));
 
 		var list = <table className="ui striped yellow table">
