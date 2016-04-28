@@ -15,7 +15,7 @@ export default class MakerspaceLineChart extends React.Component {
 		rawdata.forEach(function(item, index) {
 			var start = item.time_in;
 			var end = item.time_out;
-			if (start) {
+			if (start && end) {
 				while (start != end) {
 					times[start] = times[start] + 1;
 					start = (start + 1) % 24;
