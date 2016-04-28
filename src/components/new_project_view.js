@@ -1,6 +1,8 @@
 import React from 'react';
+import Api from '../api';
 
-const MEMBERS = 'member';
+const API = new Api();
+const MEMBERS = 'member id';
 const NAME = 'name';
 const BUDGET = 'budget';
 
@@ -56,6 +58,12 @@ export default class NewProjectView extends React.Component {
 		console.log(this.state[BUDGET]);
 		console.log(this.state[NAME]);
 		console.log(this.state[MEMBERS]);
+		var data = {
+			name: this.state[NAME],
+			budget: this.state[BUDGET],
+			members: this.state[MEMBERS]
+		}
+		API.newProject(data);
 	}
 
 

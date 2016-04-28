@@ -109,4 +109,93 @@ export default class API {
 		var data = `${this.url}/images/${name}`;
 		return data;
 	}
+
+	newMember(data) {
+		var link = this.url + '/new/member';
+		var JSONdata = JSON.stringify(data);
+		$.ajaxSetup({async:false});
+		var res = $.ajax({
+			url: link, 
+			type: "POST",
+			data: JSONdata, 
+			contentType: "application/json; charset=utf-8",
+			dataType: "json",
+			function(response) {
+				return response;
+			}
+		});
+		$.ajaxSetup({async:true});
+		return res.status;
+	}
+
+	newProject(data) {
+		var link = this.url + '/new/project';
+		var JSONdata = JSON.stringify(data);
+		$.ajaxSetup({async:false});
+		var res = $.ajax({
+			url: link, 
+			type: "POST",
+			data: JSONdata, 
+			contentType: "application/json; charset=utf-8",
+			dataType: "json",
+			function(response) {
+				return response;
+			}
+		});
+		$.ajaxSetup({async:true});
+		return res.status;
+	}
+
+	newSignIn(data) {
+		var link = this.url + '/new/signin';
+		var JSONdata = JSON.stringify(data);
+		$.ajaxSetup({async:false});
+		var res = $.ajax({
+			url: link, 
+			type: "POST",
+			data: JSONdata, 
+			contentType: "application/json; charset=utf-8",
+			dataType: "json",
+			function(response) {
+				return response;
+			}
+		});
+		$.ajaxSetup({async:true});
+		return res.status;
+	}
+
+	newSignOut(data) {
+		var link = this.url + '/new/signout';
+		var JSONdata = JSON.stringify(data);
+		$.ajaxSetup({async:false});
+		var res = $.ajax({
+			url: link, 
+			type: "POST",
+			data: JSONdata, 
+			contentType: "application/json; charset=utf-8",
+			dataType: "json",
+			function(response) {
+				return response;
+			}
+		});
+		$.ajaxSetup({async:true});
+		return res.status;
+	}
+
+	deleteMemberInfo(type, id, item) {
+		var link = this.url + '/delete/' + type + '/' + id + '/' + item;
+		$.ajaxSetup({async:false});
+		var res = $.ajax({
+			url: link, 
+			type: "DELETE",
+			data: '', 
+			contentType: "application/json; charset=utf-8",
+			dataType: "json",
+			function(response) {
+				return response;
+			}
+		});
+		$.ajaxSetup({async:true});
+		return res.status;
+	}
 }

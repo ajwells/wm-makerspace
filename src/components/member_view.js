@@ -1,5 +1,6 @@
 import React from 'react';
 import NewMemberView from './new_member_view';
+import UpdateMemberView from './update_member_view';
 import ListMemberView from './list_member_view';
 
 const MAIN = 'List';
@@ -45,6 +46,8 @@ export default class MemberView extends React.Component {
 			{view === MAIN && <ListMemberView />} 
 
 			{view === NEW && <NewMemberView />} 
+
+			{view === UPDATE && <UpdateMemberView />} 
 		</div>;
 	}
 }

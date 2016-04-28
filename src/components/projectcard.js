@@ -13,7 +13,7 @@ export default class ProjectCard extends React.Component {
 	}
 
 	clicked() {
-		this.props.onClick(false);
+		this.props.onClick('');
 	}
 
 	render() {

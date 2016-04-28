@@ -10,7 +10,7 @@ export default class MemberCard extends React.Component {
 	}
 
 	clicked() {
-		this.props.onClick(false);
+		this.props.onClick('');
 	}
 
 	render() {

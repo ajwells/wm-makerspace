@@ -19,7 +19,7 @@ export default class SignInView extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			id: false,
+			id: '',
 			room: ''
 		}
 	}
@@ -44,6 +44,16 @@ export default class SignInView extends React.Component {
 			}
 		});
 		return selected;
+	}
+
+	submit() {
+		console.log(this.state.id);
+		console.log(this.state.room);
+		var data = {
+			id: this.state.id,
+			room: this.state.room
+		}
+		API.newSignIn(data);
 	}
 
 	render() {
@@ -90,7 +100,7 @@ export default class SignInView extends React.Component {
 				</div>
 				<div className="four wide column">
 					<div style={{paddingTop: '24px'}}></div>
-					<div className="ui fluid button">Sign In</div>
+					<div className="ui fluid button" onClick={this.submit.bind(this)} >Sign In</div>
 				</div>
 			</div>
 		</div>;
@@ -106,7 +116,7 @@ export default class SignInView extends React.Component {
 				<div className="one wide column">
 				</div>
 				<div className="four wide column">
-					{card}
+					<div style={{textAlign: 'center'}}><div sytle={{display: 'inline-block'}}>{card}</div></div>
 				</div>
 			</div>
 		}

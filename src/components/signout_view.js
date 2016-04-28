@@ -19,7 +19,7 @@ export default class SignOutView extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			id: false,
+			id: '',
 			room: ''
 		}
 	}
@@ -44,6 +44,14 @@ export default class SignOutView extends React.Component {
 			}
 		});
 		return selected;
+	}
+
+	submit() {
+		console.log(this.state.id);
+		var data = {
+			id: this.state.id,
+		}
+		API.newSignOut(data);
 	}
 
 	render() {
@@ -73,7 +81,7 @@ export default class SignOutView extends React.Component {
 				</div>
 				<div className="four wide column">
 					<div style={{paddingTop: '24px'}}></div>
-					<div className="ui fluid button">Sign Out</div>
+					<div className="ui fluid button" onClick={this.submit.bind(this)}>Sign Out</div>
 				</div>
 			</div>
 		</div>;
