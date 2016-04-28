@@ -54,6 +54,7 @@ export default class SignInView extends React.Component {
 			room: this.state.room
 		}
 		API.newSignIn(data);
+		this.forceUpdate();
 	}
 
 	render() {

@@ -50,6 +50,9 @@ export default class MakerspaceView extends React.Component {
 		var idrows = [];
 		var selected = this.getSelected(this.state.id, data);
 
+		if (!data) {
+			data = {};
+		}
 		data.forEach(function(data, index) {
 			idrows.push(<DropdownItem item={data.id} key={index} />);
 		});

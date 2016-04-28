@@ -52,6 +52,7 @@ export default class SignOutView extends React.Component {
 			id: this.state.id,
 		}
 		API.newSignOut(data);
+		this.forceUpdate();
 	}
 
 	render() {
