@@ -3,7 +3,8 @@
 export default class API {
 	
 	constructor() {
-		this.url = "http://ec2-52-91-5-18.compute-1.amazonaws.com:12000";
+		//this.url = "http://ec2-52-91-5-18.compute-1.amazonaws.com:12000";
+		this.url = "http://localhost:13000";
 	}
 
 	getCounts(type) {

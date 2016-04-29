@@ -47,14 +47,16 @@ export default class SignInView extends React.Component {
 	}
 
 	submit() {
-		console.log(this.state.id);
-		console.log(this.state.room);
-		var data = {
-			id: this.state.id,
-			room: this.state.room
+		if (this.state.id != '' && this.state.room != '') {
+			console.log(this.state.id);
+			console.log(this.state.room);
+			var data = {
+				id: this.state.id,
+				room: this.state.room
+			}
+			API.newSignIn(data);
+			this.forceUpdate();
 		}
-		API.newSignIn(data);
-		this.forceUpdate();
 	}
 
 	render() {
